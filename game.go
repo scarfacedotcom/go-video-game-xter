@@ -50,11 +50,22 @@ func (player *Player) consumeEnergy(amount uint) {
 	} else {
 		player.energy -= amount
 	}
-	fmt.Println(player.name, "Consumed", amount, "energy ->", player.health)
+	fmt.Println(player.name, "Consume", amount, "energy ->", player.health)
 }
 
 //  - Print out the statistic change within each function
 //  - Execute each function at least once
 func main() {
+	player := Player{
+		name:      "peter",
+		health:    100,
+		maxHealth: 100,
+		energy:    200,
+		maxEnergy: 200,
+	}
+	player.addHealth(10)
+	player.applyDamage(20)
+	player.addEnergy(20)
+	player.consumeEnergy(40)
 
 }
