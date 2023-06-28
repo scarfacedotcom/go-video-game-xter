@@ -2,23 +2,12 @@ package main
 
 import "fmt"
 
-//--Summary:
-//  Implement receiver functions to create stat modifications
-//  for a video game character.
-//
-//--Requirements:
-//* Implement a player having the following statistics:
-//  - Health, Max Health
-//  - Energy, Max Energy
-//  - Name
 type Player struct {
 	name              string
 	health, maxHealth uint
 	energy, maxEnergy uint
 }
 
-//* Implement receiver functions to modify the `Health` and `Energy`
-//  statistics of the player.
 func (player *Player) addHealth(amount uint) {
 	player.health += amount
 	if player.health > player.maxHealth {
@@ -53,11 +42,9 @@ func (player *Player) consumeEnergy(amount uint) {
 	fmt.Println(player.name, "Consume", amount, "energy ->", player.health)
 }
 
-//  - Print out the statistic change within each function
-//  - Execute each function at least once
 func main() {
 	player := Player{
-		name:      "peter",
+		name:      "Scar Face",
 		health:    100,
 		maxHealth: 100,
 		energy:    200,
@@ -67,5 +54,4 @@ func main() {
 	player.applyDamage(20)
 	player.addEnergy(20)
 	player.consumeEnergy(40)
-
 }
